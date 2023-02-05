@@ -1,17 +1,13 @@
 [
   {
-    "name": "Sal",
-    "email": "sal@hotmail.com",
-    "password": "password12345"
-  },
-  {
-    "name": "Lernantino",
-    "email": "lernantino@gmail.com",
-    "password": "password12345"
-  },
-  {
-    "name": "Amiko",
-    "email": "amiko2k20@aol.com",
-    "password": "password12345"
+    
+    "first_name": "Sal",
+    "last_name": "sal@hotmail.com",
+    "birth_date": "11/29/1949",
+    "email": "ben@mail.com",
+    "password": "password12345",
+    "location_state": "AL",
+    "location_zipcode": "08511"
   }
+  
 ]

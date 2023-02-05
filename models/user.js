@@ -15,12 +15,12 @@ User.init({
         primaryKey: true,
         autoIncrement: true,
     },
-    volunteerEvent_id:{
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        // autoIncrement: true,
-        primaryKey: true,
-    },
+    // volunteerEvent_id:{
+    //     type: DataTypes.INTEGER,
+    //     allowNull: false,
+    //     // autoIncrement: true,
+    //     primaryKey: true,
+    //},
     first_name: {
         type: DataTypes.STRING,
         allowNull: false,

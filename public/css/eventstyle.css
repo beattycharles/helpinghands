@@ -1,34 +1,91 @@
-.event_card {
+:root {
+    --modal_background: linear-gradient(to bottom right, rgb(206, 169, 105), rgb(239, 223, 198) );
+    --modal_font_color: rgba(230, 239, 240, 0.95);
+    --modal_input_background:rgba(230, 227, 221, 0.95);
+    --modal_input_font: rgba(52, 90, 94, 0.95);
+    --modal_input_shadow: 0 0 3px 3px rgba(128, 172, 181, 0.95);
+    }
 
-}
+
+    
+ .event_card {
+color:white;
+ border: white solid;
+ border-radius: 7px;
+ padding: 5%;
+ width: 600px;
+ height: 360px;
+ margin:5%;
+ font-family: 'open sans' , sans-serif;
+ font-weight: 1000;
+ 
+ background-size: cover;
+ transition: all 0.5s;
+ 
+ }
+
+
+.event_card:hover {
+    width: 650px;
+    height: 380px;
+    border: solid white;
+    font-size: large;
+    box-shadow: 2px 2px 10px var(--modal_font_color);/* Add a shadow effect */
+  }
 
 .event_header {
+    display: flex;
+    border-bottom: white solid;
+    padding-bottom: 3%;
+    font-size: 200%;
+    
 
 }
 
-.event_description {
+.event_type {
+    display: flex;
+    font-weight: bolder;
+    margin-top: 3%;
+    justify-content: flex-end;
+    
+}
 
+.event_date {
+    display:flex;
+    justify-content: flex-end;
+    font-size: 100%;
 }
 
 .volunteer_btn {
+    border: solid white;
+    padding: 2% 3%;
+    border-radius: 5px;
+    background-image: ;
+    color: white;
+    transition: all 0.5s;
+    height: 30px;
+    width: 50px;
 
+   
+}
+ 
+.volunteer_btn:hover {
+    color: white;
+    border: solid rgb(239, 223, 198);
+    text-decoration-line: none;
+    box-shadow: 5px 5px 10px var(--modal_font_color);
 }
 
-.my_event_card {
+.card-style-1 {
+background-image: url(https://t4.ftcdn.net/jpg/04/07/46/83/360_F_407468317_yxWGLvOIVyXqUrWmlPx0uePUPjkJfWeT.jpg);
+} 
 
-
-}
-
-.vol_event_card {
-    /* //hang to right: 
-    //bg color: */
-
-}
-
-.pg_topper {
-
-}
-
-.my_events_btn {
+.card-style-2 {
+   
+    background-image: url(https://cdn.theatlantic.com/thumbor/IIbeiCxuVDtGe0CV05CSLKAyILA=/0x63:1200x738/960x540/media/img/mt/2016/05/philly/original.jpg);
     
+}
+
+.card-style-3 {
+    background-image: url(http://media.wbur.org/wp/2021/11/GettyImages-1298868932-1000x667.jpg);
 }

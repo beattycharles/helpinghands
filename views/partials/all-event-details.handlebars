@@ -1,17 +1,14 @@
-<section>
-  
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{event.event_type}}</h5>
-        <p class="card-text"> {{event.event_name}} on {{event.event_date}}
-        <p class="card-text">{{event.event_description}}</p>
-        <p class="card-text">this is event is near {{event.event_zip}} {{event.event_state}} </p>
-        <p class="card-text"> event posted by {{event.user.first_name}} {{event.user.last_name}} </p>
-        <p class="cardtext"> {{event.user.first_name}} needs {{event.vol_num}} volunteers! </p>
-        <a href="#" class="btn btn-primary">give a hand!</a>
-      </div>
-    </div>
-</section>
+<div class="event_card">
+  <div class="event_header">
+    {{event.event_name}}
+  </div>
+  <div class="">
+    <h5 class="event_type">{{event.event_type}}</h5>
+    <p class=""> event posted by {{event.user.first_name}} {{event.user.last_name}}</p>
+    <p class="">{{event.user.first_name}} needs {{event.vol_num}} volunteers!</p>
+    <p class="">this is event is near {{event.event_zip}} {{event.event_state}}</p>
+    <p class="event_date"> {{ format_time event.event_date}}</p>
+    <a href="#" class="volunteer_btn">give a hand!</a>
+  </div>
+</div>
    

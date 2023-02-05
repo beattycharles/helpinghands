@@ -2,12 +2,25 @@
 <button type="button" class="logout_btn">logout</button>
 <div id="allEventsContainer">
 {{#each event as |event|}}
+<div class="{{cycle_event_style}}">
 {{>all-event-details}}
+</div>
 {{/each}}
+</div>
 </div>
 
 <!-- button with href as path with "home route"
 connected by controller-->
 <button type="button" id="myEventsBtn" class="my_event_btn">
+<<<<<<< HEAD:views/homepage.handlebars
+/my-events/
+{{!-- <a href="./my-events">my events</a> --}}
+</button>
+=======
 <a href="./my-event.handlebars">my events</a>
 </button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+<script src="/public/js/homepage.js"
+
+>>>>>>> 0c9d22036c147263f1ccac42ab1742e6b1c4aec9:View/homepage.handlebars

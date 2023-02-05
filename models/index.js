@@ -4,31 +4,32 @@ const Event = require('./Event');
 
 // Add in the relationships between the table (i.e. one user can have many event but each event only has one user (admin))
 User.belongsToMany(Event, {
-    // as:'volunteer', 
+    as:'volunteer', 
     foreignKey: 'user_id', 
-    through: 'Volunteer'});
-    // make sure to add an on delete cascae and might remove as:
+    through: 'Volunteer',
+onDelete: 'CASCADE'});
 
 Event.belongsToMany(User, {
-    // as:'volunteered_event', 
+    as:'volunteered_event', 
     foreignKey: 'event_id',
-    through: 'Volunteer'
-    // make sure to add an on delete cascae and might remove as:
+    through: 'Volunteer',
+    onDelete: 'CASCADE'
 });
-User.hasMany(Event, {
-    foreignKey: 'user_id',
-    through: 'Event'
+
+// each event has one user
+Event.belongsTo(User, {
+    foreignKey: 'user_id', 
+    onDelete: 'CASCADE'
 });
-Event.hasOne(User, {
+
+User.hasMany(Events, {
     foreignKey: 'user_id',
-    through: 'Event'
+    onDelete: 'CASCADE'
 });
 
 // Volunteer.belongsTo(User, {
 //     foreignKey: "id"
-//     // will not work because it in incremental
 // });
-// already happening in line 6
 
 // Event.belongsToMany(User, {
 //     as:'volunteered_event', 
@@ -38,5 +39,4 @@ Event.hasOne(User, {
 // Volunteer.belongsTo(Event, {
 //     foreignKey: "event_id"
 // });
-// one to many relationship, one user with many events
 module.exports = { User, Event, Volunteer };

@@ -1,6 +1,44 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// Creates a new user
+
+router.post("/", async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+    
+    // router.post('/', async (req, res) => {
+    
+    //   try {
+    //     const userData = await User.create({
+    //       first_name: req.body.first_name,
+    //       last_name: req.body.last_name,
+    //       birth_date: req.body.birth_date,
+    //       email: req.body.email,
+    //       password: req.body.password,
+    //       location_state: req.body.location_state,
+    //       location_zipcode:{
+
+    //     });
+    //     res.status(200).json(userData);
+    //   } catch (err) {
+    //     res.status(400).json(err);
+    //   }
+    // });
+
+
+
 router.post('/login', async (req, res) => {
   try {
     // Find the user who matches the posted e-mail address
@@ -14,8 +52,8 @@ router.post('/login', async (req, res) => {
     }
 
     // Verify the posted password with the password store in the database
-    const validPassword = await userData.checkPassword(req.body.password);
-
+    const validPassword = await userData.checkPassword(req.body.password);  
+    
     if (!validPassword) {
       res
         .status(400)
@@ -36,24 +74,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
-// Creates a new user
-
-router.post('/', async (req, res) => {
-
-  try {
-    const userData = await User.create({
-      firstName: req.body.first_name,
-      lastName: req.body.last_name,
-      birthDate: req.body.birth_date,
-      email: req.body.email,
-      password: req.body.password,
-    });
-    res.status(200).json(userData);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
 
 // Get one user
 

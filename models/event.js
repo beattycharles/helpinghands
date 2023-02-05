@@ -108,22 +108,21 @@ Event.init(
     },
 
     event_zip: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       // validate: {
       //   len: [5, 10],
       // },
-      // remove all alidate if a string
+
+
     },
     event_description: {
       type: DataTypes.TEXT,
       allowNull: false,
-      // validate: {
-      //   len: 250,
-      // },
     },
     event_creation: {
       type: DataTypes.DATE,
+      
     },
     event_date: {
       type: DataTypes.DATE,

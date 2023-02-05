@@ -1,15 +1,16 @@
 <div id="eventModal" class="eventmodal">
-  <div class="modal-content">
+  
     <span class="eventclose">&times;</span>
     
+    <h1 class="modalheader">Get a Hand</h1>
 
 <form>
 
-  <label for="event_name">event name</label><br>
-  <input type="text" id="event_name" name="event_name"><br>
+  <label for="event_name">event name</label>
+  <input class="inputfields" type="text" id="event_name" name="event_name"><br>
   
-  <label for="event_date">event date</label><br>
-  <input type="date" id="event_date" name="event_date">
+  <label for="event_date">event date</label>
+  <input class="inputfields" type="date" id="event_date" name="event_date"><br>
   
   <div class="dropdown">
   <label for="event_type">event type</label><br>
@@ -22,19 +23,19 @@
   </select>
   </div>
 
-  <label for="volnum">number of volunteers</label><br>
-  <input type="number" id="volnum" name="volnum">
+  <label for="volnum">number of volunteers</label>
+  <input class="inputfields" type="number" id="volnum" name="volnum"><br>
 
-    <label for="state">state</label><br>
-  <input type="text" id="state" name="state">
+    <label for="state">state</label>
+  <input class="inputfields" type="text" id="state" name="state"><br>
 
-  <label for="eventzip">zipcode</label><br>
-  <input type="number" id="eventzip" name="eventzip">
+  <label for="eventzip">zipcode</label>
+  <input class="inputfields" type="number" id="eventzip" name="eventzip"><br>
 
- <label for="event_description">event description</label><br>
-  <input type="text" id="event_description" name="event_description">
+ <label for="event_description">event description</label>
+  <input class="inputfields" type="text" id="event_description" name="event_description"><br>
 
-<a href="./dashboard.handlebars"><button type="submit" id="event_submission" onclick="createEvent(event)" class="eventsubmit">create event</button></a>
+<a href="./dashboard.handlebars"><button class="submissionBtn" type="submit" id="event_submission" onclick="createEvent(event)" class="eventsubmit">create event</button></a>
   
 </form>
 

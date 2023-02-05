@@ -1,10 +1,12 @@
 const router = require("express").Router();
 const { Event } = require("../../models");
 
+
+
 // create routes to all events page
 
 // get all route by sort category
-router.get("/details", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     // Get all events
     const allEventData = await Event.findAll({
@@ -38,6 +40,9 @@ router.get("/details", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// Volunteer routes: 
+
 
 // Should we do a GET for single events?? then show modal???
 

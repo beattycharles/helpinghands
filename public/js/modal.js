@@ -73,8 +73,8 @@ const createUser = async (event) => {
     const password = document.querySelector('#password').value.trim();
 
     if (fName && lName && birthday && userState && userZip && email && password) {
-        
-        const createNewUser = await fetch ('/api/userRoutes', {
+        //changed userRouter to homeRoutes
+        const createNewUser = await fetch ('/api/homeRoutes', {
             method: 'POST',
             body: JSON.stringify({fName, lName, birthday, userState, userZip, email, password}),
             headers: {'New-User' : 'application/json'},
@@ -82,9 +82,9 @@ const createUser = async (event) => {
 
         if (response.ok) {
             document.location('/user');
-          } else {
+        } else {
             alert(createNewUser.statusText);
-          }
+        }
     }
 };
 

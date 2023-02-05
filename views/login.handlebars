@@ -18,11 +18,46 @@
         </div>
         <div>
           
-        <button type="button" class="createuser" id="userModalBtn">join us!</button>
+        <a href="#"><button type="button" class="createuser" id="userModalBtn">join us!</button></a>
 
           
         </div>
       </form>
     </div>
   
-<!--.................................................................--->
+<!--...........MODAL......................................................--->
+<div id="acctModal" class="acctmodal">
+  
+    <span class="userclose">&times;</span>
+    
+<form class="fieldplacement">
+  <h1 class="modalheader">Welcome!</h1>
+
+  <label class="label" for="fname">first name</label>
+  <input class="inputfields" type="text" id="fname" name="fname"><br>
+  
+  <label class="label" for="lname">last name</label>
+  <input class="inputfields" type="text" id="lname" name="lname"><br>
+
+  <label class="label" for="birthday">birthday</label>
+  <input class="inputfields" type="date" id="birthday" name="birthday"><br>
+
+  <label class="label" for="state">state</label>
+  <input class="inputfields" type="text" id="state" name="state"><br>
+
+  <label class="label" for="userzip">zipcode</label>
+  <input class="inputfields" type="number" id="userzip" name="userzip"><br>
+
+ <label class="label" for="email">email</label>
+  <input class="inputfields"type="text" id="email" name="email"><br>
+
+  <label class="label" for="password">password</label>
+  <input class= "inputfields"type="text" id="password" name="password"><br>
+  
+<a href="./dashboard.handlebars"><button type="submit" class="submissionBtn" id="user_submission" onclick="createUser(event)">welcome!</button></a>
+
+
+</form>
+
+ </div>
+</div>
