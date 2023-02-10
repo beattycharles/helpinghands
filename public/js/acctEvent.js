@@ -61,12 +61,12 @@ var userModal = document.getElementById("acctModal");
 var userCloseModal = getElementById("userclose");
 
 //displays new user modal when clicked
-userModalBtn.addEventListener("click", function () {
+//userModalBtn.addEventListener("click", function () {
     userModal.style.display = "block";
-})
+//})
 
 //saves new user with submission button
-var newUser = document.getElementById("user_submission");
+/*var newUser = document.getElementById("user_submission");
 
 const createUser = async (event) => {
   event.preventDefault();
@@ -80,7 +80,7 @@ const createUser = async (event) => {
   const password = document.querySelector("#password").value.trim();
 
   if (fName && lName && email && password) {
-    const response = await fetch("/api/user/", {
+    const response = await fetch("/api/users", {
       method: "POST",
       body: JSON.stringify({
         fName,
@@ -92,19 +92,19 @@ const createUser = async (event) => {
     });
 
     if (response.ok) {
-      window.location = "/";
+      window.location = "/dashboard";
     } else {
       alert(response.statusText);
     }
   }
 };
 
-newUser.onclick = createUser;
+//newUser.onclick = createUser;
 
-document.querySelector("#user_submission").addEventListener("click", newUser);
+document.querySelector("#user_submission").addEventListener("submit", createUser);
 
 
-
+*/
 
 
 

@@ -26,7 +26,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
-//var signUpBtn = document.getElementById("signup");
+var signUpBtn = document.getElementById("signup-form");
 
 // TODO: ask Andrew
 const signupFormHandler = async (event) => {  
@@ -37,7 +37,7 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector("#password").value.trim();
   
   if (fName && lName && email && password) {
-    const response = await fetch("/api/", {
+    const response = await fetch("/api/users", {
       method: "POST",
       body: JSON.stringify({ fName, lName, email, password }),
       headers: { "Content-Type": "application/json" },
@@ -46,17 +46,20 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/dashboard");
     } else {
-      alert(response.statusText);
+      alert("didn't work");
     }
   }
 };
+
+signUpBtn.onclick = signupFormHandler
+
 
 document
   .querySelector("#login-form")
   .addEventListener("submit", loginFormHandler);
 
 document
-  .querySelector("#signup-form")
+  .querySelector(".signup-form")
   .addEventListener("submit", signupFormHandler);
 
-  
+ 
