@@ -33,9 +33,17 @@
           <li
             class="text-lg hover:text-xl tracking-wide text-blue-200 inline hover:font-semibold mr-1.5"
           >
+
+          
             <button
               class="transition hover:scale-110 hover:no-underline hover:text-blue-200"
+<<<<<<< HEAD
               id="myEventsBtn"
+=======
+              id="createEventPage"
+              href="/api/dashboard"
+              type="button"
+>>>>>>> 16bfe0f33d9bbfac3d5786bb3aaafc8a3b4d931e
             ><a href="/dashboard"><span>my events</span></a></button>
           </li>
           <li
@@ -44,24 +52,36 @@
             <button
               class="transition hover:scale-110 hover:no-underline hover:text-blue-200"
               id="allEventsBtn"
+<<<<<<< HEAD
             ><a href="/homepage"><span>all events</span></a></button>
+=======
+              href="#"
+              {{!-- TODO: add a tag --}}
+            ><span>all events</span></button>
+>>>>>>> 16bfe0f33d9bbfac3d5786bb3aaafc8a3b4d931e
           </li>
           <li
             class="text-lg hover:text-xl tracking-wide text-blue-200 inline hover:font-semibold ml-1.5 mr-3"
           >
             <button
+            
               type="button"
               class="transition hover:scale-110 hover:no-underline hover:text-blue-200 logout_btn homepage_btn"
               id="createEventPageBtn"
+<<<<<<< HEAD
             ><a href="/new-create-event"><span>create event</span></a></button>
+=======
+            ><a href="/new-create-event"><span>create events</span></a></button>
+>>>>>>> 16bfe0f33d9bbfac3d5786bb3aaafc8a3b4d931e
           </li>
           <li
             class="text-lg hover:text-xl tracking-wide text-blue-200 inline hover:font-semibold ml-1.5 mr-3"
           >
-            <button
-              type="submit"
+            <button 
+            id="logout"
+             type="button"
               class="transition hover:scale-110 hover:no-underline hover:text-blue-200 logout_btn homepage_btn"
-              onclick="logout()"
+              
             ><span>logout</span></button>
           </li>
         </ul>
@@ -80,7 +100,6 @@
 
     <!-- Render script for logged in users only -->
     <script src="./js/logout.js"></script>
-    <script src="./js/login.js"></script>
 
   </body>
 

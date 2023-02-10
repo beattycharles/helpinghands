@@ -6,7 +6,7 @@ const withAuth = require("../utils/auth");
 // get all events and join with user data
 
 //HOMEPAGE RENDER ALL EVENTS
-//Filter by category
+
 router.get("/", withAuth, async (req, res) => {
   try {
     const eventData = await Event.findAll({
@@ -19,6 +19,8 @@ router.get("/", withAuth, async (req, res) => {
     });
     // serialization step
     const events = eventData.map((event) => event.get({ plain: true }));
+
+    // TODO: supposed to render to all events partial 
 
     res.render("homepage", { events });
   } catch (err) {
@@ -94,7 +96,46 @@ router.get("/new-create-event", (req, res) => {
 
 //   userData.event... // events created by user in array
 //   userData.volunteers.events... //events volunteeredby user
-// Write route to homepage
+// Write route to dashboard
+
+// TODO: See if this will work. Coordinate with Lexi to create cards for this
+
+// router.get("/dashboard", withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ["password"] },
+//       include: [
+//         { model: Event },
+//         { model: Volunteer, where: { user_id: req.session.user_id, 
+//           event_id: req.session.event_id } },
+//       ],
+//     });
+
+//     const user = userData.get({ plain: true });
+//     console.log(user);
+//     res.render("volevent", {
+//       ...user,
+//       logged_in: true,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+
+//CREATE NEW EVENT RENDER
+
+router.get("/new-create-event", (req, res) => {
+  if (req.session.logged_in) {
+    res.render("new-create-event", {});
+    return;
+  }
+});
+
+
+
+
 
 //LOGIN RENDER
 
@@ -133,6 +174,18 @@ router.get("/login", (req, res) => {
 //   }
 // });
 
+//NEW-EVENT-CREATE RENDER
+// router.get("/new-event-create", (req, res) => {
+//   //If a session exists, redirect the request to the homepage
+//   fstat.readfile(path.join(_dirname, "new-create-event.hbs"), (err, data) => {
+
+//     if(err) {
+//       return res.status(500).send('something went wrong! try again!');
+//     }  
+//   res.send(data);
+//   });
+
+// });
 
 
 //maybe render

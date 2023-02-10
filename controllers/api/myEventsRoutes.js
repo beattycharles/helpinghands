@@ -12,10 +12,12 @@ const { Event, Volunteer, User } = require('../../models');
 // This will post to DB from homepage modal
 
 // TODO Initialize and add with auth
-router.post('/dashboard', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newEvent = await Event.create({
       ...req.body,
+      
+      //TODO:comment out line 20 for testing only
       user_id: req.session.user_id,
     });
 
@@ -29,7 +31,7 @@ router.post('/dashboard', async (req, res) => {
 // DELETE route for events on dashboard list
 // to add later if time allows
 
-router.delete('/dashboard', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const eventData = await Event.destroy({
       where: {

@@ -1,9 +1,9 @@
 
-<div class="flex flex-wrap bg-gradient-to-r from-blue-200 to-yellow-900">
-
-{{#each event as |event|}}
+<div class="flex flex-wrap">
+<h2>here is a list of all the events! </h2>
+{{#each events as |event|}}
 <div class="{{cycle_event_style}}">
-{{>event-details}}
+{{>all-event-details}}
 </div>
 {{/each}}
 

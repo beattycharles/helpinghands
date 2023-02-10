@@ -1,7 +1,7 @@
 <div
   class="w-screen h-screen flex justify-center items-center bg-gradient-to-br from-blue-200 to-amber-700"
 >
-  <form class="p-10 bg-white rounded-xl drop-shadow-lg space-y-5 mr-4" action="">
+  <form id="login-form" class="p-10 bg-white rounded-xl drop-shadow-lg space-y-5 mr-4" >
     <h1 class="text-center text-yellow-900 text-3xl">helping hands</h1>
     <div class="flex flex-col space-y-2">
       <label class="text-sm text-yellow-900" for="email-login">email</label>
@@ -40,7 +40,9 @@
                     href="/new-create-account">create account</button></p> }}
   </form>
 
-  <form class="p-10 bg-white rounded-xl drop-shadow-lg space-y-5 ml-4" action="">
+  <form id="signup-form" class="p-10 bg-white rounded-xl drop-shadow-lg space-y-5" >
+
+
     <h1 class="text-center text-yellow-900 text-3xl">helping hands</h1>
 
     <div class="flex flex-col space-y-2">
@@ -77,11 +79,13 @@
     </div>
 
     <div class="flex flex-col space-y-2">
- 
+
+
       <label class="text-sm text-yellow-900" for="password">password</label>
       <input class="w-96 px-3 py-2 rounded-md border border-yellow-900 text-yellow-900" type="password"
         placeholder="your password" name="password" id="password">
     </div>
+
 
     {{! <button class="w-full px-10 py-2 bg-yellow-900 text-white rounded-md
             hover:bg-yellow-800 hover:drop-shadow-md duration-300 ease-in" type="submit" id="user_submission"
@@ -91,32 +95,17 @@
       create account!
     </button> }}
 
+    <button
+      class="w-full px-10 py-2 bg-yellow-900 text-white rounded-md hover:bg-yellow-800 hover:drop-shadow-md duration-300 ease-in"
+      id="signup"
+      
+    >
+      create account!
+    </button>
 
-
-<button class="signup-form w-full px-10 py-2 bg-yellow-900 text-white rounded-md
-            hover:bg-yellow-800 hover:drop-shadow-md duration-300 ease-in" onclick= "signupFormHandler(event)" type="submit">
-  create account!
-</button>
 
   </form>
 </div>
 
-    <script src="./js/login.js"></script>
 
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="./js/login.js"></script>
