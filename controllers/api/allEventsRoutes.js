@@ -6,81 +6,48 @@ const { Event } = require("../../models");
 // create routes to all events page That will go to homepage
 
 // get all route by sort category
-router.get("/", async (req, res) => {
+// router.get("/", async (req, res) => {
 
 
-  try {
-    console.log("All events!")
+//   try {
+//     console.log("All events!")
 
 
-    // Get all events
-    const allEventData = await Event.findAll({
-      attributes: [
+//     // Get all events
+//     const allEventData = await Event.findAll({
+//       attributes: [
 
-        "id",
-        "user_id",
-        "event_name",
-        "event_description",
-        "event_type",
-        "vol_need",
-        "event_date",
-        "vol_num",
+//         "id",
+//         "event_name",
+//         "event_description",
+//         "event_type",
+//         "vol_need",
+//         "event_date",
+//         "event_address"
 
-    ],
-      // order: [["event_name", "ASC"]],
-      // where clause for category
+//     ],
+//       // order: [["event_name", "ASC"]],
+//       // where clause for category
       
-    });
+//     });
 
-    console.log({allEventData})
+//     console.log({allEventData})
 
-    const events = allEventData.map((event) => {
-    return event.get({ plain: true });
+//     const events = allEventData.map((event) => {
+//     return event.get({ plain: true });
       
 
-    });
+//     });
 
-    console.log({events})
+//     console.log({events})
 
-    // Pass serialized data into Handlebars.js template
-    //res.render("all-event-details", { events });
-    res.status(200).json(events)
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//     // Pass serialized data into Handlebars.js template
+//     //res.render("all-event-details", { events });
+//     res.status(200).json(events)
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 
 

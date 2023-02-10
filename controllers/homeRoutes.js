@@ -5,10 +5,9 @@ const withAuth = require("../utils/auth");
 
 // get all events and join with user data
 
-//HOMEPAGE RENDER
+//HOMEPAGE RENDER ALL EVENTS
 //Filter by category
-router.get('/', withAuth, async (req, res) => {
-
+router.get("/", withAuth, async (req, res) => {
   try {
     const eventData = await Event.findAll({
       include: [
@@ -21,47 +20,42 @@ router.get('/', withAuth, async (req, res) => {
     // serialization step
     const events = eventData.map((event) => event.get({ plain: true }));
 
-    res.render("homepage", {
-      events,
-      logged_in: req.session_logged_in,
-      // Pass the logged in flag to the template
-    });
+    res.render("dashboard", { events });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-//This route shows individual event page
+//This route SUPPOSED TO SHOW individual event page
+// MAYBE get back to it
 
-// TODO link to individual events from dashboard
+// router.get("/event/:id", withAuth, async (req, res) => {
+//   try {
+//     const eventData = await Event.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: {
+//             exclude: ["password"],
+//           },
+//         },
+//       ],
+//     });
 
-router.get("/event/:id", withAuth, async (req, res) => {
-  try {
-    const eventData = await Event.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: {
-            exclude: ['password']
-          }
-        },
-      ],
-    });
+//     const event = eventData.get({ plain: true });
 
-    const event = eventData.get({ plain: true });
+//     console.log({ event });
 
-    console.log({event})
+//     res.render("specific-event-details", {
+//       ...event,
+//       //logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-    res.render("specific-event-details", {
-      ...event,
-      //logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// DASHBOARD RENDER
+// DASHBOARD RENDER USER'S EVENTS 
 // TODO: Add withauth when login is working
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
@@ -72,7 +66,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-console.log(user)
+    console.log(user);
     res.render("dashboard", {
       ...user,
       logged_in: true,
@@ -81,6 +75,10 @@ console.log(user)
     res.status(500).json(err);
   }
 });
+
+
+//TODO: Figure out the volunteer routing
+
 
 //   userData.event... // events created by user in array
 //   userData.volunteers.events... //events volunteeredby user

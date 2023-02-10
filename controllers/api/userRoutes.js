@@ -55,13 +55,12 @@ router.get("/", async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    console.log('Please log in!!!!!!!!!!!!!!!!!!!!!')
+   
     // Find the user who matches the posted e-mail address
     const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
-      console.log('HERERERERER')
-      res
+       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
@@ -71,7 +70,7 @@ router.post('/login', async (req, res) => {
     const validPassword = await userData.checkPassword(req.body.password);  
     
     if (!validPassword) {
-      console.log('LALALALALALALALALALALALA')
+      
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });

@@ -518,16 +518,3 @@ video {
   --tw-backdrop-saturate: ;
   --tw-backdrop-sepia: ;
 }
-.progress {
-  margin: calc(0.65em + 1px) 0 0 0;
-  position: relative;
-  right: 3.5em;
-}
-
-svg {
-  display: block;
-  height: 1.9em;
-}
-input[type="password"][required]:invalid + label[placeholder][alt]:before {
-  content: attr(alt);
-}
