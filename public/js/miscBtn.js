@@ -21,7 +21,7 @@ const seeAll = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/homepage');
+            document.location.replace('homepage');
           } else {
             alert("something went wrong! try again!");
           }
@@ -65,7 +65,7 @@ const seeMyEvents = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('dashboard');
           } else {
             alert("couldn't load the events you created! try again!");
           }
@@ -80,7 +80,7 @@ const seeMyEvents = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('dashboard');
           } else {
             alert("couldn't load the events you volunteered for! try again!");
           }
@@ -130,7 +130,7 @@ const loginPage = async(event) => {
 event.preventDefault();
 
     if (response.ok) {
-        document.location.replace('/login');
+        document.location.replace('login');
       } else {
         alert("something went wrong! try again!");
       }

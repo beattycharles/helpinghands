@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { fstat } = require("fs");
-const { Event, User } = require("../models");
+const { Event, User, Volunteer } = require("../models");
 const withAuth = require("../utils/auth");
 
 // get all events and join with user data
@@ -13,14 +13,14 @@ router.get("/", withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["first_name"],
+          attributes: ["first_name", "last_name"],
         },
       ],
     });
     // serialization step
     const events = eventData.map((event) => event.get({ plain: true }));
 
-    res.render("dashboard", { events });
+    res.render("homepage", { events });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -76,6 +76,14 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+//NEW-EVENT-CREATE RENDER
+router.get("/new-create-event", (req, res) => {
+  if (req.session.logged_in) {
+    res.render("new-create-event", {});
+    return;
+  }
+
+});
 
 //TODO: Figure out the volunteer routing
 
@@ -125,18 +133,7 @@ router.get("/login", (req, res) => {
 //   }
 // });
 
-//NEW-EVENT-CREATE RENDER
-router.get("/new-event-create", (req, res) => {
-  //If a session exists, redirect the request to the homepage
-  fstat.readfile(path.join(_dirname, "new-create-event.hbs"), (err, data) => {
 
-    if(err) {
-      return res.status(500).send('something went wrong! try again!');
-    }  
-  res.send(data);
-  });
-
-});
 
 //maybe render
 

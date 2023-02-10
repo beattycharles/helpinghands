@@ -44,6 +44,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
+
+
 app.use(routes);
 // TODO change force back from true
 sequelize.sync({ force: false }).then(() => {

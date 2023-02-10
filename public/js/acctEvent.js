@@ -1,16 +1,15 @@
-//NEW EVENT MODAL
-var eventModal = document.getElementById("eventModal");
-var eventCloseModal = document.getElementsByClassName("eventclose");
-var createEventPage =document.getElementById("createEventPageBtn");
+
+//var createEventPage =document.getElementById("createEventPageBtn");
 
 //displays create event 
 
-createEventPage.addEventListener("click",async() =>{
+/*createEventPage.addEventListener("click",async() =>{
   const response = await fetch ("/new-event-create");
   const createEventTemplate = await response.text();
     
   document.getElementById('mainContainer').innerHTML=createEventTemplate;
     });
+    */
 
 
 
@@ -22,30 +21,31 @@ var eventSubmission = document.getElementById("event_submission");
 const createEvent = async (event) => {
     event.preventDefault();
 
-    const eventName = document.querySelector('#event_name').value.trim();
-    const eventDate = document.querySelector('#event_date').value.trim();
-    const eventType = document.querySelector('#event_type').value.trim();
-    const volNum = document.querySelector('#volnum').value.trim();
-    const eventState = document.querySelector('#state').value.trim();
-    const eventDescription = document.querySelector('#event_description').value.trim();
+    const event_name = document.querySelector('#event_name').value.trim();
+    const event_date = document.querySelector('#event_date').value.trim();
+    const event_type = document.querySelector('#event_type').value.trim();
+    const vol_need = document.querySelector('#volnum').value.trim();
+    const event_description = document.querySelector('#event_description').value.trim();
 
-    if (eventName && eventDate && eventType && volNum && eventState && eventDescription) {
+    if (event_name && event_date && event_type && vol_need && event_description) {
         
-        const createNewEvent = await fetch ('/api/myEventsRoutes', {
+        const response = await fetch ('/api/myEventsRoutes', {
             method: 'POST',
-            body: JSON.stringify({eventName, eventDate, eventType, volNum, state, eventZip, eventDescription}),
+            body: JSON.stringify({event_name, event_date, event_type, vol_need, event_description}),
             headers: {'New-Event' : 'application/json'},
         });
 
         if (response.ok) {
-            document.location('/event');
+            document.location.replace('/dashboard');
           } else {
-            alert(createNewEvent.statusText);
+            alert('no luck');
           }
     }
 };
 
-eventSubmission.onclick = createEvent();
+document
+  .querySelector('#event_submission')
+  .addEventListener('click', createEvent);
 
 
 
@@ -56,13 +56,14 @@ eventSubmission.onclick = createEvent();
 
 
 //NEW USER MODAL
-var userModalBtn = document.getElementById("userModalBtn");
+/*var userModalBtn = document.getElementById("userModalBtn");
 var userModal = document.getElementById("acctModal");
 var userCloseModal = getElementById("userclose");
+*/
 
 //displays new user modal when clicked
 //userModalBtn.addEventListener("click", function () {
-    userModal.style.display = "block";
+//userModal.style.display = "block";
 //})
 
 //saves new user with submission button

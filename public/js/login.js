@@ -31,15 +31,15 @@ var signUpBtn = document.getElementById("signup-form");
 // TODO: ask Andrew
 const signupFormHandler = async (event) => {  
   event.preventDefault();
-  const fName = document.querySelector("#fname").value.trim();
-  const lName = document.querySelector("#lname").value.trim();  
+  const first_name = document.querySelector("#fName").value.trim();
+  const last_name = document.querySelector("#lName").value.trim();  
   const email = document.querySelector("#email").value.trim();
   const password = document.querySelector("#password").value.trim();
   
-  if (fName && lName && email && password) {
+  if (email && password) {
     const response = await fetch("/api/users", {
       method: "POST",
-      body: JSON.stringify({ fName, lName, email, password }),
+      body: JSON.stringify({ first_name, last_name, email, password }),
       headers: { "Content-Type": "application/json" },
     });
 

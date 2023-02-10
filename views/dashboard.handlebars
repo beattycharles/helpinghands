@@ -2,13 +2,16 @@
 
 <div class="flex mb-4"><!--whole container-->
   <div class="w-1/2 bg-gradient-to-r from-blue-300 to-yellow-900 flex flex-col items-center"><!--my events contained--> 
-
-    {{#each events as |event|}}
+{{#if event.length}}
+<div>
+    {{#each event as |event|}}
             {{!-- TODO: Put back eq --}}
             {{!-- {{#if (eq event.user_id user.id)}} --}}
     {{> my-event}}
             {{!-- {{/if}} --}}
     {{/each}}
+</div>
+    {{/if}}
 
   </div>
 

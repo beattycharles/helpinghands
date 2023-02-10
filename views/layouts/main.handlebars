@@ -26,8 +26,7 @@
           <button
             id="allEventsButton"
             class="transition hover:scale-105 hover:no-underline hover:font-bold hover:text-yellow-900"
-            href="#"
-          >helping hands</button>
+          ><a href="/homepage">helping hands</a></button>
         </h1>
 
         <ul class="float-right">
@@ -36,9 +35,8 @@
           >
             <button
               class="transition hover:scale-110 hover:no-underline hover:text-blue-200"
-              id="createEventPage"
-              href="#"
-            ><span>my events</span></button>
+              id="myEventsBtn"
+            ><a href="/dashboard"><span>my events</span></a></button>
           </li>
           <li
             class="text-lg hover:text-xl tracking-wide text-blue-200 inline hover:font-semibold ml-1.5 mr-1.5"
@@ -46,8 +44,7 @@
             <button
               class="transition hover:scale-110 hover:no-underline hover:text-blue-200"
               id="allEventsBtn"
-              href="#"
-            ><span>all events</span></button>
+            ><a href="/homepage"><span>all events</span></a></button>
           </li>
           <li
             class="text-lg hover:text-xl tracking-wide text-blue-200 inline hover:font-semibold ml-1.5 mr-3"
@@ -56,7 +53,7 @@
               type="button"
               class="transition hover:scale-110 hover:no-underline hover:text-blue-200 logout_btn homepage_btn"
               id="createEventPageBtn"
-            ><span>create event</span></button>
+            ><a href="/new-create-event"><span>create event</span></a></button>
           </li>
           <li
             class="text-lg hover:text-xl tracking-wide text-blue-200 inline hover:font-semibold ml-1.5 mr-3"
@@ -72,7 +69,7 @@
       </nav>
     </div>
 
-    <main id="mainContainer">
+    <main>
       <!-- Render the sub layout -->
       {{{body}}}
 
