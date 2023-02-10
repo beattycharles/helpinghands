@@ -13,7 +13,7 @@ router.get("/", withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["first_name"],
+          attributes: ["first_name", "last_name"],
         },
       ],
     });
@@ -22,7 +22,7 @@ router.get("/", withAuth, async (req, res) => {
 
     // TODO: supposed to render to all events partial 
 
-    res.render("dashboard", { events });
+    res.render("homepage", { events });
   } catch (err) {
     res.status(500).json(err);
   }

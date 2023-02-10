@@ -1,15 +1,16 @@
         <div class="bg-white max-w-sm rounded overflow-hidden shadow-lg text-yellow-900 m-3">
             <img class="w-full" src="https://researchautism.org/wp-content/uploads/2022/10/03-section-960x700-Resource.jpg" alt="all hands in">
             <div class="px-6 py-4">
-              <div class="font-bold text-xl mb-2" id= "alleventname">{{event.event_name}} </div>
+              <div class="font-bold text-xl mb-2" id= "alleventname">{{event_name}} </div>
               <p class=" text-base">
-                <span id="alleventtype">this event is a {{event.event_type}} event on</span><span id="alleventdate">{{formatDate event.event_date}}!</span><br>
-                <span id="alleventvol">we need {{event.vol_needed}} volunteers!</span>
+                {{!-- TODO: add back format date --}}
+                <span id="alleventtype">this event is a {{event_type}} event on</span><span id="alleventdate">{{format_date event_date}}!</span><br>
+                <span id="alleventvol">we need {{vol_needed}} volunteers!</span>
     
               </p>
             </div>
             <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">event posted by {{event.user.first_name}}</span>
+              <span class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">event posted by {{first_name}} {{last_name}} </span>
               <span id="alleventuser" class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2"><a href="/views/event-details" class="hover:no-underline hover:text-yellow-900 hover:font-bold" id="volunteerBtn">volunteer!</a></span>
              
             </div>
