@@ -52,75 +52,168 @@ var myEventsBtn = document.getElementById("myEventsBtn");
 const seeMyEvents = async (event) => {
     event.preventDefault();
 
-    const event_name = document.querySelector("#myeventname").value.trim();
-    const event_date = document.querySelector("#myeventdate").value.trim();
-    const event_type = document.querySelector("#myeventtype").value.trim();
-    const vol_need = document.querySelector("#myeventvol").value.trim();
-    //const myEventState = document.querySelector('#myeventstate').value.trim();
-    const event_address = document.querySelector("#myeventzip").value.trim();
-    const event_description = document.querySelector("#myeventdescription").value.trim();
-    //const event_description = document.querySelector("#myeventadd").value.trim();
-
-    // const volEVentName = document.querySelector('#voleventname').value.trim();
-    // const volEventType = document.querySelector('#voleventtype').value.trim();
-    // const volEventDate = document.querySelector('#voleventdate').value.trim();
-    // const volEventDescription = document.querySelector('#voleventdescription').value.trim();
-    // const volEventAdd = document.querySelector('#voleventadd').value.trim();
-    // const volEventState = document.querySelector('#voleventstate').value.trim();
-    // const volEventZip = document.querySelector('#voleventzip').value.trim();
-
+    let event_name = document.querySelector("#myeventname").value.trim();
+    let event_date = document.querySelector("#myeventdate").value.trim();
+    let event_type = document.querySelector("#myeventtype").value.trim();
+    let vol_need = document.querySelector("#myeventvol").value.trim();
+    let event_address = document.querySelector("#myeventadd").value.trim();
+    let event_description = document.querySelector("#myeventdescription").value.trim();
     
     if (
       event_name &&
       event_date &&
       event_type &&
       vol_need &&
-      //myEventState &&
       event_address &&
-      myEventAdd &&
       event_description
     ) {
       let response = await fetch("/api/myEvents", {
         method: "GET",
         body: JSON.stringify({
-          myEventName,
-          myEventDate,
-          myEventType,
-          myEventVolNum,
-          myEventState,
-          myEventZip,
-          myEventAdd,
-          myEventDescription,
+          event_name,
+          event_date,
+          event_type,
+          vol_need,
+          event_address,
+          event_description,
         }),
         headers: { "My-Events": "application/json" },
       });
-
       if (response.ok) {
         document.location.replace("/dashboard");
       } else {
         alert("couldn't load the events you created! try again!");
       }
     }
-
-    if (volEVentName && volEventAdd && volEventDate && volEventDescription && volEventState && volEventType && volEventZip){
-        
-        let response = await fetch ('/api/allEvents', {
-            method: 'GET',
-            body: JSON.stringify({myEventName, myEventDate, myEventType, myEventVolNum, myEventState, myEventZip, myEventAdd, myEventDescription}),
-            headers: {'Volunteer-Events' : 'application/json'},
-        });
-
-        if (response.ok) {
-            document.location.replace('/dashboard');
-          } else {
-            alert("couldn't load the events you volunteered for! try again!");
-          }
     }
 
-};
+    ////////////////////////////////////////////////
+    //VOLUNTEER CARD FUNCTION USING 2 API ROUTES
+    //ONE FOR EVENT DETAILS, ONE FOR USER (CREATOR) NAME
+
+    const seeVolEvents = async (event) => {
+        event.preventDefault();
+
+    const event_name = document.querySelector("#voleventname").value.trim();
+    const volunteer_type = document.querySelector("#voleventtype").value.trim();
+    const volunteer_date = document.querySelector("#voleventdate").value.trim();
+    const event_description = document.querySelector("#voleventdescription").value.trim();
+    const vol_need = document.querySelector("#voleventneed").value.trim();
+    const event_address = document.querySelector("#voleventadd").value.trim();
+    const first_name = document.querySelector("#creator_firstname").value.trim();
+    const last_name = document.querySelector("#creator_lastname").value.trim();
+
+    let volEventData; 
+    if (
+        event_name && 
+        volunteer_date && 
+        volunteer_type &&
+        event_address && 
+        event_description &&
+        vol_need 
+        ) {
+        const volEventResponse = await fetch ("/api/volunteer", {
+            method: "GET",
+            body: JSON.stringify({
+                event_name, 
+                volunteer_date,  
+                volunteer_type, 
+                vol_need, 
+                event_address, 
+                event_description
+            }),
+            headers: {"Content-Type" : "application/json"},
+            });
+
+        volEventData = await volEventResponse.json();
+    } if (!volEventData.ok) {
+        alert("volunteer event data did not load");
+    }
+
+    let eventData; 
+    if (
+        event_name && 
+        event_address && 
+        event_description &&
+        vol_need 
+        ) {
+        const eventResponse = await fetch ("/api/allEvents", {
+            method: "GET",
+            body: JSON.stringify({
+                event_name,
+                vol_need, 
+                event_address, 
+                event_description
+            }),
+            headers: {"Content-Type" : "application/json"},
+            });
+
+        eventData = await eventResponse.json();
+    } if (!volEventData.ok) {
+        alert("event data did not load");
+    }
+    
+    let creatorData;
+    if (
+        first_name &&
+        last_name
+        ) {
+        const creatorNameResponse = await fetch ("api/users", {
+            method: "GET",
+            body: JSON.stringify ({
+                first_name,
+                last_name
+            }), 
+            headers :{ "Content-Type" : "application/json"},
+            });
+
+        creatorData = await creatorNameResponse.json();
+        } if (!creatorData.ok) {
+            alert("creator data did not load");
+        }
+
+        const combinedResponses = { ... volEventData, ...eventData, ... creatorData }; 
+            document.location.replace("/dashboard");
+        
+    }
+
+ 
 
 
-//more details
+
+
+
+const loginPage = async(event) => {
+event.preventDefault();
+
+    if (response.ok) {
+        document.location.replace("login");
+      } else {
+        alert("something went wrong! try again!");
+      }
+}
+
+
+document
+    .querySelector("allEventsButton")
+    .addEventListener("click", seeAll);
+
+document
+    .querySelector("myEventsBtn")
+    .addEventListener("click", seeMyEvents);
+
+/*document
+    .querySelector("myEventsBtn")
+    .addEventListener("click", seeVolEvents);*/
+
+document
+    .querySelector("loginPage")
+    .addEventListener("click",loginPage);
+
+
+    ///////////////////////////////////////////////////
+
+    //more details
 /*
 var moreDetailsss = document.getElementById("moredetails");
 
@@ -156,33 +249,5 @@ const moreDetails = async (event) => {
           }
     }
 };*/
-
-const loginPage = async(event) => {
-event.preventDefault();
-
-    if (response.ok) {
-        document.location.replace('login');
-      } else {
-        alert("something went wrong! try again!");
-      }
-}
-
-
-document
-    .querySelector('allEventsButton')
-    .addEventListener('click', seeAll);
-
-document
-    .querySelector('myEventsBtn')
-    .addEventListener('click', seeMyEvents);
-
-/*document
-    .querySelector('moredetails')
-    .addEventListener('click', moreDetails);*/
-
-document
-    .querySelector('loginPage')
-    .addEventListener('click',loginPage);
-
 
 

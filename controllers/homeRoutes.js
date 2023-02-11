@@ -196,3 +196,53 @@ router.get("/login", (req, res) => {
 //maybe render
 
 module.exports = router;
+
+
+//example to RENDER VOLUNTEER EVENTS ON DASHBOARD
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await Event.findByPk(req.session.user_id, {
+      
+      include: { model: User }
+
+       })
+    
+
+    const user = userData.get({ plain: true });
+    console.log(user);
+
+
+    //volunteer cards
+
+    const events = await Event.findAll({
+      include: [
+        { model: Volunteer, 
+          where: { user_id: req.session.user_id } }
+      ]
+    });
+
+    const combinedResponses = events.map(event => ({
+      event_name: event.event_name,
+      volunteer_type: volunteer.volunteer_type,
+      volunteer_date: volunteer.volunteer_date,
+      event_description: event.event_description,
+      vol_need: event.event_description,
+      event_address: event.event_address,
+      first_name: event.user_id.user.first_name,
+      last_name: event.user_id.user.last_name
+    }));
+
+    res.render("dashboard", {
+      ...user,
+      combinedResponses,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
+

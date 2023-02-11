@@ -1,15 +1,13 @@
         <div class="bg-white max-w-sm rounded overflow-hidden shadow-lg text-yellow-900 m-3">
-            <img clpm i ass="w-full" src="https://teen.smokefree.gov/sites/default/files/styles/article_image/public/featured_images/quit-with-help.jpg?itok=Mo8w4ttc" alt="getting help">
+            <img class="w-full" src="https://teen.smokefree.gov/sites/default/files/styles/article_image/public/featured_images/quit-with-help.jpg?itok=Mo8w4ttc" alt="giving help">
             <div class="px-6 py-4">
-              <div class="font-bold text-xl mb-2" id= "voleventname">{{volunteer.event_id.event.event_name}} </div>
+              <div class="font-bold text-xl mb-2" id= "voleventname">{{combinedResponses.event_name}} posted by: <span id="creator_firstname" > {{combinedResponses.first_name}} </span> <span  id="creator_lastname" > {{combinedResponses.last_name}} </span></div>
               <p class=" text-base">
-                <span id="myeventtype">you volunteered for a {{user.volunteerEvent_id.event.event_type}} event on</span><span id="voleventdate">{{  user.volunteerEvent_id.event.event_date}}!</span><br>
-                <span id="voleventadd">{{user.volunteerEvent_id.event.event_address}}</span>
-    
+                <span id="voleventtype">you volunteered for a {{combinedResponses.event_type}} event on</span><span id="voleventdate">{{combinedResponses.event_date}}!</span><br>
+                <span id="voleventneed">there are {{combinedResponses.vol_need}} needed! </span> <br>
+                <span id="voleventadd">{{combinedResponses.event_address}}</span> <br>
+                <span id="voleventdescription"> {{combinedResponses.event_description}} </span>
               </p>
             </div>
-            <div class="px-6 pt-4 pb-2">
-              <span id="alleventuser" class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2"><a href="/views/event-details" class="hover:no-underline hover:font-bold hover:text-yellow-900" id="moredetails">get more details!</a></span>
-             
-            </div>
+            
           </div>
