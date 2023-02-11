@@ -29,7 +29,7 @@ const createEvent = async (event) => {
 
     if (event_name && event_date && event_type && vol_need && event_description) {
         
-        const response = await fetch ('/api/myEventsRoutes', {
+        const response = await fetch ('/api/myEvents', {
             method: 'POST',
             body: JSON.stringify({event_name, event_date, event_type, vol_need, event_description}),
             headers: {'New-Event' : 'application/json'},

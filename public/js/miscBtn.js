@@ -38,7 +38,7 @@ var myEventsBtn = document.getElementById("myEventsBtn");
 const seeMyEvents = async (event) => {
     event.preventDefault();
 
-    const myEventName = document.querySelector('#myeventname').value.trim();
+    const event_name = document.querySelector('#myeventname').value.trim();
     const myEventDate = document.querySelector('#myeventdate').value.trim();
     const myEventType = document.querySelector('#myeventtype').value.trim();
     const myEventVolNum = document.querySelector('#myeventvol').value.trim();
