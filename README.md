@@ -52,15 +52,17 @@ Example of code used to create the View of the application.
 ## Important Links
 [GitHub Repository](https://github.com/beattycharles/helpinghands)
 
-[Deployed Application]()
+[Deployed Application](https://agile-peak-82285.herokuapp.com/)
 
-![Image of Deployed Application]()
 ## Languages Used
 
-![HTML Badge]()
-![CSS Badge]()
-![Java Script Badge]()
-![Handlebar]()
+* HTML
+
+* CSS
+
+* JS
+
+* Handlebar
 
 ## Contributors
 
