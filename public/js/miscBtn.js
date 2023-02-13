@@ -105,22 +105,16 @@ const seeMyEvents = async (event) => {
 
     let volEventData; 
     if (
-        event_name && 
         volunteer_date && 
-        volunteer_type &&
-        event_address && 
-        event_description &&
-        vol_need 
+        volunteer_type 
         ) {
         const volEventResponse = await fetch ("/api/volunteer", {
             method: "GET",
             body: JSON.stringify({
-                event_name, 
+                
                 volunteer_date,  
                 volunteer_type, 
-                vol_need, 
-                event_address, 
-                event_description
+               
             }),
             headers: {"Content-Type" : "application/json"},
             });
