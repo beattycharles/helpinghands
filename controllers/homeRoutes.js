@@ -13,14 +13,14 @@ router.get("/", withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["first_name", "last_name", ],
+          attributes: ["first_name", "last_name"],
         },
       ],
     });
     // serialization step
     const events = eventData.map((event) => event.get({ plain: true }));
 
-    // TODO: supposed to render to all events partial 
+    // TODO: supposed to render to all events partial
 
     res.render("homepage", { events });
   } catch (err) {
@@ -28,8 +28,7 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
-
-// DASHBOARD RENDER USER'S EVENTS 
+// DASHBOARD RENDER USER'S EVENTS
 // TODO: Add withauth when login is working
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
@@ -50,9 +49,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
-
 //TODO: Figure out the volunteer routing
-
 
 //   userData.event... // events created by user in array
 //   userData.volunteers.events... //events volunteeredby user
@@ -61,9 +58,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 //   userData.event... // events created by user in array
 //   userData.volunteers.events... //events volunteeredby user
 
-
 // Write route to dashboard
-
 
 // GET route for retrieving all volunteer events for a specific user
 // router.get("/:user_id", async (req, res) => {
@@ -112,9 +107,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
 //   }
 // });
 
-
-
-
 // TODO: See if this will work. Coordinate with Lexi to create cards for this
 
 // router.get("/volunteer", withAuth, async (req, res) => {
@@ -124,13 +116,13 @@ router.get("/dashboard", withAuth, async (req, res) => {
 //       attributes: { exclude: ["password"] },
 //       include: [
 //         { model: Event },
-//         { model: Volunteer, where: { user_id: req.session.user_id, 
+//         { model: Volunteer, where: { user_id: req.session.user_id,
 //           event_id: req.session.event_id } },
 //       ],
 //     });
 
 //     const user = userData.get({ plain: true });
-   
+
 //     res.render("volunteered", {
 //       ...user,
 //       logged_in: true,
@@ -140,7 +132,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
 //   }
 // });
 
-
 //CREATE NEW EVENT RENDER
 
 router.get("/new-create-event", (req, res) => {
@@ -149,10 +140,6 @@ router.get("/new-create-event", (req, res) => {
     return;
   }
 });
-
-
-
-
 
 //LOGIN RENDER
 
@@ -198,12 +185,10 @@ router.get("/login", (req, res) => {
 
 //     if(err) {
 //       return res.status(500).send('something went wrong! try again!');
-//     }  
+//     }
 //   res.send(data);
 //   });
 
 // });
-
-
 
 module.exports = router;
